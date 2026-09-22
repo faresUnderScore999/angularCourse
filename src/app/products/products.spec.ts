@@ -31,6 +31,38 @@ describe('Products', () => {
     expect(compiled.querySelector('.likes-badge')?.textContent).toContain('1');
   });
 
+  it('should not let likes drop below zero on dislike', async () => {
+    const fixture = TestBed.createComponent(Products);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    const dislikeButton = compiled.querySelector('[data-action="dislike"]');
+    dislikeButton?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    expect(compiled.querySelector('.likes-badge')?.textContent).toContain('0');
+  });
+
+  it('should undo a like when disliked', async () => {
+    const fixture = TestBed.createComponent(Products);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    const likeButton = compiled.querySelector('[data-action="like"]');
+    const dislikeButton = compiled.querySelector('[data-action="dislike"]');
+
+    likeButton?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    await fixture.whenStable();
+    expect(compiled.querySelector('.likes-badge')?.textContent).toContain('1');
+
+    dislikeButton?.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    await fixture.whenStable();
+    fixture.detectChanges();
+
+    expect(compiled.querySelector('.likes-badge')?.textContent).toContain('0');
+  });
+
   it('should keep the total stock in sync', async () => {
     const fixture = TestBed.createComponent(Products);
     fixture.detectChanges();

@@ -21,7 +21,9 @@
           <th scope="col">Price</th>
           <th scope="col">Quantity</th>
           <th scope="col">Likes</th>
-          <th scope="col"><span class="visually-hidden">Actions</span></th>
+          <th scope="col">Actions like</th>
+          <th scope="col">Actions dislike</th>
+          <th scope="col">Actions buy</th>
         </tr>
       </thead>
       <tbody>
@@ -38,16 +40,38 @@
               <button
                 type="button"
                 class="like-btn"
+                data-action="like"
                 [attr.aria-label]="'Like ' + product.name"
                 (click)="like(product)"
               >
                 👍 Like
               </button>
             </td>
+            <td class="cell-action">
+              <button
+                type="button"
+                class="like-btn"
+                data-action="dislike"
+                [attr.aria-label]="'Dislike ' + product.name"
+                (click)="dislike(product)"
+              >
+                👎 Dislike
+              </button>
+            </td>
+                   <td class="cell-action">
+              <button
+                type="button"
+                class="like-btn"
+                [attr.aria-label]="'Like ' + product.name"
+                (click)="like(product)"
+              >
+                buy
+              </button>
+            </td>
           </tr>
         } @empty {
           <tr>
-            <td colspan="6" class="cell-empty">No products in the catalogue.</td>
+            <td colspan="8" class="cell-empty">No products in the catalogue.</td>
           </tr>
         }
       </tbody>

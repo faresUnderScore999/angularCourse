@@ -35,6 +35,16 @@ export class Products {
     );
   }
 
+  protected dislike(product: Product) {
+    this.products.update((list) =>
+      list.map((item) =>
+        item.id === product.id
+          ? { ...item, likes: item.likes > 0 ? item.likes - 1 : 0 }
+          : item
+      )
+    );
+  }
+
   protected formatPrice(price: number): string {
     return price.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
   }

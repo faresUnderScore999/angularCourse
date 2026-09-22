@@ -11,6 +11,7 @@ export class Header {
   protected readonly links = [
     { label: 'Home', href: '/' },
     { label: 'Signals', href: '/signals' },
+    { label: 'Products', href: '/products' },
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' }
   ];

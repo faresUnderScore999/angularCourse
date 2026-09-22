@@ -1,0 +1,62 @@
+<section class="page">
+  <header class="page-header">
+    <p class="eyebrow">Demo data</p>
+    <h1 class="page-title">Products</h1>
+    <p class="lede">
+      A <code>Product</code> model with <code>id</code>, <code>name</code>,
+      <code>price</code>, <code>quantity</code> and <code>likes</code>, rendered from a
+      demo list held in a signal. Click the <strong>Like</strong> button to bump a
+      product's likes.
+    </p>
+  </header>
+
+  <section class="section">
+    <h2 class="section-title">Catalogue ({{ products().length }})</h2>
+
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Likes</th>
+          <th scope="col"><span class="visually-hidden">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of products(); track product.id) {
+          <tr>
+            <td class="cell-id">{{ product.id }}</td>
+            <td class="cell-name">{{ product.name }}</td>
+            <td class="cell-price">{{ formatPrice(product.price) }}</td>
+            <td class="cell-quantity">{{ product.quantity }}</td>
+            <td class="cell-likes">
+              <span class="likes-badge">{{ product.likes }}</span>
+            </td>
+            <td class="cell-action">
+              <button
+                type="button"
+                class="like-btn"
+                [attr.aria-label]="'Like ' + product.name"
+                (click)="like(product)"
+              >
+                👍 Like
+              </button>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="6" class="cell-empty">No products in the catalogue.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    <p class="summary">
+      Total stock: <strong data-testid="total-stock">{{ totalStock() }}</strong>
+      &nbsp;·&nbsp; Total value:
+      <strong data-testid="total-value">{{ formatPrice(totalValue()) }}</strong>
+    </p>
+  </section>
+</section>

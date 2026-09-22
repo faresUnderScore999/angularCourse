@@ -1,0 +1,12 @@
+<header class="app-header">
+  <a class="brand" routerLink="/" aria-label="MonProjet home">
+    <span class="brand-mark" aria-hidden="true">◆</span>
+    <span class="brand-name">MonProjet</span>
+  </a>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    @for (link of links; track link.href) {
+      <a class="nav-link" [routerLink]="link.href">{{ link.label }}</a>
+    }
+  </nav>
+</header>

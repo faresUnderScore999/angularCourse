@@ -1,0 +1,11 @@
+<footer class="app-footer">
+  <div class="footer-inner">
+    <p class="footer-copy">&copy; {{ year }} MonProjet. All rights reserved.</p>
+
+    <nav class="footer-nav" aria-label="Footer navigation">
+      @for (link of links; track link.href) {
+        <a class="footer-link" [routerLink]="link.href">{{ link.label }}</a>
+      }
+    </nav>
+  </div>
+</footer>

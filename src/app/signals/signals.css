@@ -1,0 +1,263 @@
+:host {
+  display: block;
+  overflow: hidden;
+}
+
+.page {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding: var(--spacing-page) var(--spacing-page) calc(var(--spacing-page) * 2);
+}
+
+/* ---------- Page header ---------- */
+
+.page-header {
+  padding-block-start: var(--spacing-xxl);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.page-title {
+  margin: var(--spacing-sm) 0 0;
+  color: var(--color-text);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin: var(--spacing-md) 0 0;
+  max-width: 46rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.lede em {
+  color: var(--color-text);
+  font-style: normal;
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  margin-block-start: var(--spacing-xxl);
+}
+
+.section-title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.section-intro {
+  margin: var(--spacing-sm) 0 0;
+  max-width: 46rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.section-intro em {
+  color: var(--color-text);
+  font-style: normal;
+}
+
+/* ---------- Key-idea cards ---------- */
+
+.card-grid {
+  margin-block-start: var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.card {
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.card-body {
+  margin: var(--spacing-sm) 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ---------- Live demo ---------- */
+
+.demo {
+  margin-block-start: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-surface) 70%, white);
+}
+
+.demo-counter {
+  display: grid;
+  place-items: center;
+  min-height: 6rem;
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+.demo-value {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.demo-metric {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-sm) 0 0;
+  color: var(--color-text);
+}
+
+.demo-tag {
+  padding: 0 var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+}
+
+.demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-block-start: var(--spacing-md);
+}
+
+.demo-log {
+  margin: var(--spacing-sm) 0 0;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  font-weight: 600;
+  background: transparent;
+  color: var(--color-text);
+}
+
+.btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  border-color: transparent;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--color-primary) 80%, black);
+}
+
+.btn-plain {
+  border: none;
+  color: var(--color-text-muted);
+}
+
+.btn-plain:hover {
+  color: var(--color-text);
+}
+
+/* ---------- Code samples ---------- */
+
+.sample {
+  margin-block-start: var(--spacing-md);
+}
+
+.sample-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+pre {
+  margin: var(--spacing-xs) 0 0;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  background: oklch(22% 0.01 300);
+  color: oklch(90% 0.02 300);
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-family: var(--font-mono);
+}
+
+/* ---------- Comparison table ---------- */
+
+.compare {
+  margin-block-start: var(--spacing-md);
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.compare th,
+.compare td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.compare th {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.compare code {
+  white-space: nowrap;
+}
+
+/* ---------- Notes & footnote ---------- */
+
+.note-list {
+  margin: var(--spacing-sm) 0 0;
+  padding-inline-start: var(--spacing-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.note-list code {
+  font-family: var(--font-mono);
+}
+
+.footnote {
+  margin-block-start: var(--spacing-xxl);
+  padding-block-end: var(--spacing-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.footnote code {
+  font-family: var(--font-mono);
+}

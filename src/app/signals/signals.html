@@ -1,0 +1,154 @@
+<section class="page">
+  <header class="page-header">
+    <p class="eyebrow">Angular concepts</p>
+    <h1 class="page-title">What is a Signal?</h1>
+    <p class="lede">
+      A signal is a small container for a value that can change over time. Code can
+      <em>read</em> the value and <em>react</em> to it automatically — whenever a signal
+      changes, every computation that depends on it updates itself. Introduced in
+      Angular&nbsp;17, signals are now the change-detection primitive at the heart of
+      Angular.
+    </p>
+  </header>
+
+  <section class="section">
+    <h2 class="section-title">Four ideas in one</h2>
+    <div class="card-grid">
+      @for (idea of ideas; track idea.title) {
+        <article class="card">
+          <h3 class="card-title">{{ idea.title }}</h3>
+          <p class="card-body">{{ idea.body }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Signals in action</h2>
+    <p class="section-intro">
+      This counter below is a real signal. The doubled value is a computed signal
+      derived from it, the effect counter is maintained by an effect, and the log line
+      is plain text interpolation — every piece stays in sync automatically.
+    </p>
+
+    <div class="demo">
+      <div class="demo-counter" [attr.aria-label]="'Current count: ' + count()">
+        <span class="demo-value" data-testid="counter-value">{{ count() }}</span>
+      </div>
+
+      <p class="demo-metric">
+        Doubled: <strong data-testid="counter-double">{{ double() }}</strong>
+        <span class="demo-tag">computed()</span>
+      </p>
+      <p class="demo-metric">
+        Effect runs: <strong>{{ effectRuns() }}</strong>
+        <span class="demo-tag">effect()</span>
+      </p>
+
+      <div class="demo-actions">
+        <button type="button" class="btn" data-action="decrement" (click)="decrement()">
+          − Decrement
+        </button>
+        <button type="button" class="btn btn-primary" data-action="increment" (click)="increment()">
+          + Increment
+        </button>
+        <button type="button" class="btn btn-plain" data-action="reset" (click)="reset()">
+          Reset
+        </button>
+      </div>
+
+      <p class="demo-log">{{ lastAction() }}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">How to use them</h2>
+
+    <article class="sample">
+      <h3 class="sample-title">Create a signal</h3>
+      <pre><code>{{ createSample }}</code></pre>
+    </article>
+
+    <article class="sample">
+      <h3 class="sample-title">Read and write</h3>
+      <pre><code>{{ readWriteSample }}</code></pre>
+    </article>
+
+    <article class="sample">
+      <h3 class="sample-title">Derive values with computed()</h3>
+      <pre><code>{{ computedSample }}</code></pre>
+    </article>
+
+    <article class="sample">
+      <h3 class="sample-title">React to changes with effect()</h3>
+      <pre><code>{{ effectSample }}</code></pre>
+    </article>
+
+    <article class="sample">
+      <h3 class="sample-title">Use them in a template</h3>
+      <pre><code>{{ templateSample }}</code></pre>
+    </article>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Signals vs. a plain variable</h2>
+    <table class="compare">
+      <thead>
+        <tr>
+          <th scope="col">What you want</th>
+          <th scope="col">Plain value</th>
+          <th scope="col">Angular signal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Store the state</td>
+          <td><code>let count = 0;</code></td>
+          <td><code>const count = signal(0);</code></td>
+        </tr>
+        <tr>
+          <td>Read the value</td>
+          <td><code>count</code></td>
+          <td><code>count()</code></td>
+        </tr>
+        <tr>
+          <td>Write a new value</td>
+          <td><code>count = 5;</code></td>
+          <td><code>count.set(5);</code></td>
+        </tr>
+        <tr>
+          <td>Learn that it changed</td>
+          <td>You check manually</td>
+          <td>Dependents re-run automatically</td>
+        </tr>
+        <tr>
+          <td>Update the view</td>
+          <td>Manual bookkeeping</td>
+          <td>Only the parts that read it</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Not to be confused with</h2>
+    <p class="section-intro">Signals are <em>state</em>, not events:</p>
+    <ul class="note-list">
+      <li>
+        DOM events like <code>(click)="handler($event)"</code> or <code>(change)</code>
+        are event streams coming from the user interface, not state containers.
+      </li>
+      <li>
+        RxJS <code>Subject</code> / <code>BehaviorSubject</code> are push-based,
+        asynchronous streams of values. Signals are synchronous, pull-based value cells.
+      </li>
+    </ul>
+  </section>
+
+  <p class="footnote">
+    <code>signal</code>, <code>computed</code> and <code>effect</code> all live in
+    <code>@angular/core</code> — no extra dependencies needed. Signals are also what
+    powers Angular's newer functional APIs such as <code>input</code>,
+    <code>output</code> and <code>viewChild</code>.
+  </p>
+</section>

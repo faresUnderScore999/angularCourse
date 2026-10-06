@@ -59,68 +59,17 @@
   letter-spacing: -0.01em;
 }
 
-/* ---------- Events table ---------- */
+/* ---------- Events card grid ---------- */
 
-.events-table {
+.events-grid {
   margin-block-start: var(--spacing-md);
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.events-table th,
-.events-table td {
-  padding: var(--spacing-sm) var(--spacing-md);
-  text-align: left;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.events-table th {
-  color: var(--color-text-muted);
-  font-weight: 600;
-}
-
-.cell-id {
-  color: var(--color-text-muted);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-}
-
-.cell-title {
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.cell-description {
-  color: var(--color-text-muted);
-  line-height: 1.5;
-}
-
-.cell-location {
-  white-space: nowrap;
-}
-
-.cell-price,
-.cell-places {
-  text-align: right;
-  white-space: nowrap;
-}
-
-.cell-price {
-  font-family: var(--font-mono);
-}
-
-.places-badge {
-  display: inline-grid;
-  place-items: center;
-  min-width: 1.75rem;
-  padding: 0 var(--spacing-xs);
-  border-radius: var(--radius-full);
-  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
-  color: var(--color-primary);
-  font-weight: 700;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
 }
 
 .cell-empty {
+  grid-column: 1 / -1;
   padding: var(--spacing-lg);
   text-align: center;
   color: var(--color-text-muted);

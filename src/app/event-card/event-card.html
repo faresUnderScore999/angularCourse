@@ -1,0 +1,28 @@
+<article class="event-card" data-testid="event-card">
+  <div class="card-top">
+    <span class="card-date">{{ formatDate(event().date) }}</span>
+    <span class="card-price" [class.card-price--free]="event().price === 0">
+      {{ formatPrice(event().price) }}
+    </span>
+  </div>
+
+  <h3 class="card-title">{{ event().title }}</h3>
+
+  <p class="card-location">
+    <span class="card-location-icon" aria-hidden="true">📍</span>
+    {{ event().location }}
+  </p>
+
+  <p class="card-description">{{ event().description }}</p>
+
+  <footer class="card-footer">
+    <span class="places-badge">{{ event().nbPlaces }} places</span>
+    <a
+      class="details-btn"
+      [routerLink]="['/events', event().id]"
+      [attr.aria-label]="'View details for ' + event().title"
+    >
+      Details
+    </a>
+  </footer>
+</article>

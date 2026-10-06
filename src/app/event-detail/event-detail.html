@@ -1,0 +1,54 @@
+<section class="page">
+  @if (event(); as event) {
+    <a class="back-link" routerLink="/events">← Back to events</a>
+
+    <article class="detail" data-testid="event-detail">
+      <header class="detail-header">
+        <p class="eyebrow">{{ formatDate(event.date) }}</p>
+        <h1 class="detail-title">{{ event.title }}</h1>
+        <p class="detail-location">
+          <span class="detail-location-icon" aria-hidden="true">📍</span>
+          {{ event.location }}
+        </p>
+      </header>
+
+      <p class="detail-description">{{ event.description }}</p>
+
+      <dl class="detail-facts">
+        <div class="fact">
+          <dt class="fact-label">Price</dt>
+          <dd class="fact-value" data-testid="detail-price">
+            {{ formatPrice(event.price) }}
+          </dd>
+        </div>
+        <div class="fact">
+          <dt class="fact-label">Places</dt>
+          <dd class="fact-value" data-testid="detail-places">
+            {{ event.nbPlaces }}
+          </dd>
+        </div>
+        <div class="fact">
+          <dt class="fact-label">Date</dt>
+          <dd class="fact-value">{{ formatDate(event.date) }}</dd>
+        </div>
+        <div class="fact">
+          <dt class="fact-label">Location</dt>
+          <dd class="fact-value">{{ event.location }}</dd>
+        </div>
+      </dl>
+
+      <footer class="detail-footer">
+        <span class="event-id">Event #{{ event.id }}</span>
+        <a class="btn-back" routerLink="/events">Browse other events</a>
+      </footer>
+    </article>
+  } @else {
+    <div class="not-found" data-testid="event-not-found">
+      <h1 class="detail-title">Event not found</h1>
+      <p class="detail-description">
+        The event you are looking for does not exist or has been removed.
+      </p>
+      <a class="btn-back" routerLink="/events">← Back to events</a>
+    </div>
+  }
+</section>

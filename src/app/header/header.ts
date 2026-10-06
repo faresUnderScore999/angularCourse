@@ -12,6 +12,7 @@ export class Header {
     { label: 'Home', href: '/' },
     { label: 'Signals', href: '/signals' },
     { label: 'Products', href: '/products' },
+    { label: 'Events', href: '/events' },
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' }
   ];

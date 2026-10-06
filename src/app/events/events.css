@@ -1,0 +1,138 @@
+:host {
+  display: block;
+  overflow: hidden;
+}
+
+.page {
+  max-width: var(--content-max-width);
+  margin-inline: auto;
+  padding: var(--spacing-page) var(--spacing-page) calc(var(--spacing-page) * 2);
+}
+
+/* ---------- Page header ---------- */
+
+.page-header {
+  padding-block-start: var(--spacing-xxl);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.page-title {
+  margin: var(--spacing-sm) 0 0;
+  color: var(--color-text);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.lede {
+  margin: var(--spacing-md) 0 0;
+  max-width: 46rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.lede code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* ---------- Section ---------- */
+
+.section {
+  margin-block-start: var(--spacing-xxl);
+}
+
+.section-title {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Events table ---------- */
+
+.events-table {
+  margin-block-start: var(--spacing-md);
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.events-table th,
+.events-table td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.events-table th {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.cell-id {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.cell-title {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cell-description {
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.cell-location {
+  white-space: nowrap;
+}
+
+.cell-price,
+.cell-places {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.cell-price {
+  font-family: var(--font-mono);
+}
+
+.places-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.75rem;
+  padding: 0 var(--spacing-xs);
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.cell-empty {
+  padding: var(--spacing-lg);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Summary ---------- */
+
+.summary {
+  margin-block-start: var(--spacing-md);
+  color: var(--color-text);
+}
+
+.summary strong {
+  color: var(--color-primary);
+}

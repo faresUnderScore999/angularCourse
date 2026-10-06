@@ -1,0 +1,56 @@
+<section class="page">
+  <header class="page-header">
+    <p class="eyebrow">Demo data</p>
+    <h1 class="page-title">Events</h1>
+    <p class="lede">
+      An <code>eventM</code> model with <code>id</code>, <code>title</code>,
+      <code>description</code>, <code>location</code>, <code>date</code>,
+      <code>price</code> and <code>nbPlaces</code>, rendered from a static demo
+      list held in a signal.
+    </p>
+  </header>
+
+  <section class="section">
+    <h2 class="section-title">Upcoming events ({{ events().length }})</h2>
+
+    <table class="events-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Location</th>
+          <th scope="col">Date</th>
+          <th scope="col">Price</th>
+          <th scope="col">Places</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (event of events(); track event.id) {
+          <tr>
+            <td class="cell-id">{{ event.id }}</td>
+            <td class="cell-title">{{ event.title }}</td>
+            <td class="cell-description">{{ event.description }}</td>
+            <td class="cell-location">{{ event.location }}</td>
+            <td class="cell-date">{{ formatDate(event.date) }}</td>
+            <td class="cell-price">{{ formatPrice(event.price) }}</td>
+            <td class="cell-places">
+              <span class="places-badge">{{ event.nbPlaces }}</span>
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="7" class="cell-empty">No events scheduled.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+
+    <p class="summary">
+      Total places:
+      <strong data-testid="total-places">{{ totalPlaces() }}</strong>
+      &nbsp;·&nbsp; Free events:
+      <strong data-testid="free-count">{{ freeCount() }}</strong>
+    </p>
+  </section>
+</section>
